@@ -3,6 +3,7 @@ package org.seckill.dao;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.seckill.entity.Seckill;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -23,7 +24,7 @@ import static org.junit.Assert.*;
 @ContextConfiguration({"classpath:spring/spring-dao.xml"})
 public class SeckillDaoTest {
 
-    //注入Dao实现类依赖,报错无影响，原因目前不知道
+    //注入Dao实现类依赖,报错无影响，原因目前不知道,我认为这个报错是由于Dao接口只添加了mybatis自定义的@Mapper注解，没有添加spring定义的@Component、@Repository等，所以IDEA不认为这是纳入Spring管理的Bean，导致在IDEA找不到autowire的Dao的来源
     @Resource
     private SeckillDao seckillDao;
 
