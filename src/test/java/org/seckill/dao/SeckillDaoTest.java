@@ -9,6 +9,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import javax.annotation.Resource;
 
 
+import java.util.Date;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -20,12 +23,15 @@ import static org.junit.Assert.*;
 @ContextConfiguration({"classpath:spring/spring-dao.xml"})
 public class SeckillDaoTest {
 
-    //注入Dao实现类依赖
+    //注入Dao实现类依赖,报错无影响，原因目前不知道
     @Resource
     private SeckillDao seckillDao;
 
     @Test
     public void testReduceNumber() throws Exception {
+        Date killTime = new Date();
+        int updateCount = seckillDao.reduceNumber(1000L, killTime);
+        System.out.println("updateCount"+updateCount);
     }
 
     @Test
@@ -36,8 +42,13 @@ public class SeckillDaoTest {
         System.out.println(seckill);
     }
 
+    // java没有保存形参的记录, 需要Param注解
     @Test
     public void testQueryAll() throws Exception {
+        List<Seckill> seckillList = seckillDao.queryAll(0, 100);
+        for (Seckill seckill: seckillList) {
+            System.out.println(seckill);
+        }
     }
 
 }
