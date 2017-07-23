@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 /**
  * Created by Thpffcj on 2017/7/21.
  */
+@Repository
 public interface SuccessKilledDao {
 
     /**

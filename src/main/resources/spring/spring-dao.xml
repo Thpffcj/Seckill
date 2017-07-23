@@ -6,6 +6,8 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="org.seckill.dao"/>
     <!-- 配置整合mybatis过程 -->
     <!-- 1：配置数据库相关参数
             properties的属性：${url}
@@ -49,6 +51,5 @@
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <!-- 给出扫描Dao接口包 -->
         <property name="basePackage" value="org.seckill.dao"/>
-
     </bean>
 </beans>

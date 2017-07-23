@@ -12,6 +12,7 @@ import java.util.List;
 /**
  * Created by Thpffcj on 2017/7/21.
  */
+@Repository
 public interface SeckillDao {
 
     /**
