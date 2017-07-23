@@ -52,4 +52,9 @@ public class SeckillDaoTest {
         }
     }
 
+    @Test
+    public void test(){
+        System.out.println("success");
+    }
+
 }
